@@ -34,8 +34,6 @@ class VirtualDomRoot {
     const { type, props } = vNode;
 
     const element = document.createElement(type);
-
-    console.log(props);
     const children = props.children;
     delete props.children;
 
