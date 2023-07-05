@@ -1,1 +1,12 @@
-{}
+{
+  "scripts": {
+    "dev": "pnpm watch | pnpm serve",
+    "serve": "live-server --host=localhost --port=3000 --no-browser",
+    "compile": "tsc -p tsconfig.json",
+    "watch": "pnpm compile --watch"
+  },
+  "devDependencies": {
+    "live-server": "1.2.2",
+    "typescript": "5.1.6"
+  }
+}
