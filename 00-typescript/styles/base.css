@@ -1,0 +1,32 @@
+:root {
+  font-size: 10px;
+}
+
+body {
+  font: 1.6rem/1.5 "Pretendard", sans-serif;
+}
+
+
+button {
+  cursor: pointer;
+  
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+img {
+  vertical-align: middle;
+}
+
+a:where([href])::after {
+  content: '('attr(href)')';
+}
+
+svg {
+  pointer-events: none;
+}
+
+:focus-visible {
+  outline: 4px solid color-mix(in srgb, hsl(214, 93%, 47%) 45%, hsl(0, 100%, 100%) 100%);
+}
