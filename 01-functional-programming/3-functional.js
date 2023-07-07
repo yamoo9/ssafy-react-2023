@@ -22,16 +22,16 @@ function fetchAndRenderAndLogAlbumList() {
           ${data
             .map(
               ({ albumId, id, title, url, thumbnailUrl }) => `
-            <li class="albumItem">
-              <a class="albumLink" href="${url}">
-                <img class="albumThumbnail" src="${thumbnailUrl}" alt="" />
-                <div role="group" class="albumInfo">
-                  <strong class="albumTitle">${title}</strong>
-                  <span class="albumId">${albumId}</span>
-                </div>
-              </a>
-            </li>
-          `
+                <li class="albumItem">
+                  <a class="albumLink" href="${url}">
+                    <img class="albumThumbnail" src="${thumbnailUrl}" alt="" />
+                    <div role="group" class="albumInfo">
+                      <strong class="albumTitle">${title}</strong>
+                      <span class="albumId">${albumId}</span>
+                    </div>
+                  </a>
+                </li>
+              `
             )
             .join('')}
         </ul>

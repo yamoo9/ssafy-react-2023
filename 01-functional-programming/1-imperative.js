@@ -11,7 +11,7 @@ const originalValue = [
 
 const expectedValue = [
   {
-    key: 'programming-0',
+    key: 'programming-1',
     name: '명령형 프로그래밍',
   },
   {
