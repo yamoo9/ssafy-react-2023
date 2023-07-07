@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+}
+
+body,
+body *,
+body::before,
+body::after,
+body *::before,
+body *::after {
+  box-sizing: inherit;
+}
+
+button {
+  cursor: pointer;
+  font: inherit;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+abbr[title] {
+  cursor: help;
+  text-decoration: none;
+}

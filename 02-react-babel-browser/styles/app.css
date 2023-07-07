@@ -1,0 +1,99 @@
+.app {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  gap: calc(var(--gap) * 2);
+
+  & * {
+    margin: 0;
+  }
+}
+
+.library {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+
+  .logo {
+    --size: 8rem;
+
+    width: var(--size);
+    height: var(--size);
+    margin-bottom: calc(var(--gap) * 2);
+    animation: rotation 12s linear infinite;
+    animation-play-state: running;
+  }
+
+  & figcaption {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  }
+
+  .name {
+    margin-bottom: calc(var(--gap) * 2);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    font-size: 3.6rem;
+    font-weight: 500;
+    color: var(--primary);
+  }
+
+  .catchphrize {
+    font-size: 1.4rem;
+    color: var(--deepdark-gray);
+  }
+}
+
+.button-group {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  padding: calc(var(--gap) * 2);
+  gap: calc(var(--gap) * 2);
+
+  & button {
+    border: 0;
+    border-radius: 5rem;
+    padding: 1em 2em;
+    line-height: 1;
+    font-size: 1.2rem;
+    font-weight: 600;
+    background: var(--white);
+    transition: all 0.2s ease;
+  }
+
+  .primary {
+    background: var(--primary);
+    color: var(--white);
+
+    &:hover {
+      background: var(--primary-hover);
+    }
+  }
+
+  .secondary {
+    border: 0.5px solid currentColor;
+    color: var(--primary);
+
+    &:hover {
+      background: var(--deeplight-gray);
+    }
+  }
+}
+
+/* 키프레임 애니메이션 */
+@keyframes rotation {
+  from { rotate: 0deg; }
+  to { rotate: 360deg; }
+}
+
+/* 접근성 */
+@media (prefers-reduced-motion) {
+  .library .logo {
+    animation-play-state: paused;
+  }
+}
