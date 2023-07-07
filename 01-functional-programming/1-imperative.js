@@ -21,9 +21,13 @@ const expectedValue = [
 ];
 
 function run() {
-  const receivedValue = [...originalValue];
+  const receivedValue = [...originalValue]; // 배열 복사 (원본 변형하지 않음)
 
   // 명령형 코드를 여기에 작성합니다.
+  for (let i = 0, l = receivedValue.length; i < l; ++i) {
+    const receivedItem = receivedValue[i];
+    receivedItem.key = `programming-${i + 1}`;
+  }
 
   return receivedValue;
 }
