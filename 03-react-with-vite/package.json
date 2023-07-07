@@ -1,0 +1,11 @@
+{
+  "type": "module",
+  "name": "manual-react-dev-config-by-vite",
+  "version": "0.0.1",
+  "private": true,
+  "engines": {
+    "node": "^18.0.0",
+    "vscode": "^1.79.0"
+  },
+  "scripts": {}
+}
