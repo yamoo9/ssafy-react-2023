@@ -16,12 +16,12 @@ function numberWithComma(n) {
 
 // --------------------------------------------------------------------------
 
-function createElement(type, props, ...children) {
+function createElement(type, props = {}, ...children) {
   return {
     $$typeof: Symbol('virtual-element'),
     key: null,
     type,
-    props: { ...props, children: [...(props.children ?? []), ...children] },
+    props: { ...props, children: [...(props?.children ?? []), ...children] },
   };
 }
 
