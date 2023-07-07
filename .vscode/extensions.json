@@ -1,0 +1,56 @@
+{
+  "recommendations": [
+    
+    /* HTML --------------------------------------------------------------------- */
+    
+    "HTMLHint.vscode-htmlhint",
+    "formulahendry.auto-close-tag",
+    "formulahendry.auto-rename-tag",
+    
+    /* CSS ---------------------------------------------------------------------- */
+    
+    "clinyong.vscode-css-modules",
+    
+    /* Sass --------------------------------------------------------------------- */
+
+    "syler.sass-indenteds",
+
+    /* Tailwind CSS ------------------------------------------------------------- */
+
+    "bradlc.vscode-tailwindcss",
+    "bourhaouta.tailwindshades",
+    "austenc.tailwind-docs",
+
+    /* JavaScript --------------------------------------------------------------- */
+    
+    "Tobermory.es6-string-html",
+    
+    /* Node.js ------------------------------------------------------------------ */
+    
+    "chrisbibby.hide-node-modules",
+    "jasonnutter.search-node-modules",
+    "mikestead.dotenv",
+    
+    /* React -------------------------------------------------------------------- */
+    
+    "styled-components.vscode-styled-components",
+    "dsznajder.es7-react-js-snippets",
+    "riazxrazor.html-to-jsx",
+    "infarkt.css-to-jss",
+
+    /* Linter, Formatter -------------------------------------------------------- */
+    
+    // "dbaeumer.vscode-eslint",
+    // "esbenp.prettier-vscode",
+    // "rebornix.toggle",
+    
+    /* Snippets ----------------------------------------------------------------- */
+
+    "robole.snippets-ranger",
+
+    /* RESTful Client ----------------------------------------------------------- */
+
+    "rangav.vscode-thunder-client"
+
+  ]
+}
