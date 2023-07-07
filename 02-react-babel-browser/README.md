@@ -5,3 +5,4 @@
 - [UNPKG CDN: React](https://unpkg.com/browse/react/)
 - [UNPKG CDN: ReactDOM](https://unpkg.com/browse/react-dom/)
 - [UNPKG CDN: @babel/standalone](https://unpkg.com/browse/@babel/standalone/)
+- [@babel/standalone](https://babeljs.io/docs/babel-standalone)
