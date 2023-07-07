@@ -5,13 +5,13 @@
 
   --deeplight-gray: #f4f3f3;
   --deepdark-gray: #1c1c1c;
-  
+
   --primary: #087ea4;
   --primary-hover: #065d7a;
   --primary-50p: rgba(8 125 164 / 50%);
-  
+
   --gap: 4px;
-  
+
   font-size: 10px;
   box-sizing: border-box;
 }
@@ -26,4 +26,8 @@ body {
 :focus-visible {
   outline: none;
   box-shadow: 0 0 0 0.3rem var(--primary-50p);
+}
+
+[hidden] {
+  display: none !important;
 }

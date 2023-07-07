@@ -1,34 +1,50 @@
 <!DOCTYPE html>
 <html lang="ko-KR">
-
   <head>
     <meta charset="UTF-8" />
     <title>HTML 문서에서 React 시작하기</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css" />
-    <link rel="icon" href="https://vectorlogo.zone/logos/reactjs/reactjs-icon.svg" />
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css"
+    />
+    <link
+      rel="icon"
+      href="https://vectorlogo.zone/logos/reactjs/reactjs-icon.svg"
+    />
     <link rel="stylesheet" href="styles/main.css" />
-    <script src="scripts/main.js"></script>
+    <script
+      src="https://unpkg.com/react/umd/react.development.js"
+      defer
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom/umd/react-dom.development.js"
+      defer
+    ></script>
+    <script src="scripts/main.js" defer></script>
   </head>
 
   <body class="flex-xy-center">
-
     <div id="root">
-      <div class="app">
+      <div class="app" hidden>
         <figure class="library">
           <img class="logo" src="assets/ReactLogo.svg" alt="" />
           <strong class="name">React</strong>
-          <p class="catchphrize">사용자 인터페이스 구축을 위한 웹 &amp; 모바일 라이브러리</p>
+          <p class="catchphrize">
+            사용자 인터페이스 구축을 위한 웹 &amp; 모바일 라이브러리
+          </p>
         </figure>
         <div role="group" class="button-group">
           <button type="button" class="primary">React 배우기</button>
-          <button type="button" class="secondary" onclick="handleGoToReference()">
+          <button
+            type="button"
+            class="secondary"
+            onclick="handleGoToReference()"
+          >
             <abbr title="Application Programming Interface">API</abbr> 레퍼런스
           </button>
         </div>
       </div>
     </div>
-
   </body>
-
 </html>
