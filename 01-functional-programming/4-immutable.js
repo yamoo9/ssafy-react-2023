@@ -22,7 +22,7 @@ function sortBy(data, key) {
 
   // [불변 데이터 관리]
   // 원본 데이터를 변형하지 않고, 불변 데이터로 관리하는 코드를 작성합니다.
-  return data.sort((dataX, dataY) => {
+  return [...data].sort((dataX, dataY) => {
     const x = dataX[key];
     const y = dataY[key];
 
