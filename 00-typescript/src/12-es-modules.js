@@ -19,8 +19,8 @@ function numberWithComma(n) {
 function createElement(type, props = {}, ...children) {
   return {
     $$typeof: Symbol('virtual-element'),
-    key: null,
     type,
+    key: props?.key ?? null,
     props: { ...props, children: [...(props?.children ?? []), ...children] },
   };
 }
@@ -31,6 +31,8 @@ class VirtualDomRoot {
   }
 
   #parseVNode(vNode) {
+    if (typeof vNode === 'string') return vNode;
+
     const { type, props } = vNode;
 
     const element = document.createElement(type);

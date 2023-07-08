@@ -18,28 +18,29 @@ function numberWithComma(n: number): string {
 
 type VirtualNode = null | string | number | VirtualElement;
 
+interface Props {
+  [key: string]: any;
+  children?: (string | VirtualElement)[];
+}
+
 interface VirtualElement {
   $$typeof: Symbol;
   key: null | string | number;
   type: string;
-  props: {
-    [key: string]: any;
-    children?: (string | VirtualElement)[];
-  } | null;
+  props: Props | null;
 }
 
-type createElementType = (
-  type: string,
-  props: Pick<VirtualElement, 'props'> & {
-    children?: (string | VirtualElement)[];
-  }
-) => VirtualNode;
+type createElementType = (type: string, props: Props) => VirtualElement;
 
-const createElement: createElementType = (type, props, ...children) => {
-  const returnNode: VirtualNode = {
+const createElement: createElementType = (
+  type: string,
+  props: Props,
+  ...children
+) => {
+  const returnNode: VirtualElement = {
     $$typeof: Symbol('virtual-element'),
-    key: null,
     type,
+    key: props?.key ?? null,
     props: { ...props, children: [...(props?.children ?? []), ...children] },
   };
 
@@ -55,7 +56,6 @@ class VirtualDomRoot {
     if (typeof vNode === 'string') return vNode;
 
     const { type, props } = vNode;
-
     const element = document.createElement(type);
     const children = props?.children;
     delete props?.children;
@@ -86,7 +86,9 @@ class VirtualDomRoot {
   }
 
   umount(): void {
-    Array.from(this.rootElement.children).forEach((child) => child.remove());
+    Array.from(this.rootElement.children).forEach((child: Element) =>
+      child.remove()
+    );
   }
 }
 
