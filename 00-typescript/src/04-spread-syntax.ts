@@ -33,10 +33,13 @@
   // custom type vs. interface
   // optional
   interface Options {
+    // 옵셔널로 만들어주는 것  = ? 붙이면 된다
     startIndex?: number;
     loop?: boolean;
     usingAria?: boolean;
   }
+
+  // ? = 옵셔널 = 불리언 또는 언디파인 값이 들어올 수 있구나!
 
   function combineObject() {
     const defaultOptions: Options = {
@@ -47,7 +50,8 @@
 
     const customOptions: Options = {
       loop: true,
-      // startIndex: 0,
+      // startIndex: 0,  -> options interface에 따라 필수기 때문에 꼭 설정해줘야 한다고 경고창이 뜬다
+      // 따라서 옵셔널로 만들면(값 뒤에 ? 붙이기)-->interface Options~ 부분
       // usingAria: true,
     };
 

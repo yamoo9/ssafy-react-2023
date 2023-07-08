@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 // --------------------------------------------------------------------------
 // 📌 [TypeScript → ECMAScript(JavaScript)]
 // --------------------------------------------------------------------------
@@ -19,42 +19,4 @@
 // 11. promise & async - await
 // 12. ES Modules
 // 13. class
-
-// console.log('es module');
-
-import createRoot, {
-  shuffle,
-  createElement as h /* hyperscript */,
-} from './12-es-modules.js';
-
-// console.log(EsModules.shuffle([1, 2, 3, 4, 5]));
-// console.log(EsModules.numberWithComma(9_800_456));
-
-function demo1() {
-  const originalArray = [2, 4, 65, 23];
-  const createdArray = shuffle(originalArray);
-
-  console.assert(
-    !Object.is(originalArray, createdArray),
-    '🔴 originalArray와 createdArray는 동일한 객체입니다.'
-  );
-}
-
-function demo2() {
-  const strongElement = h('strong', {}, 'Virtual');
-
-  const headingElement = h(
-    'h1',
-    { className: 'headline', lang: 'en' },
-    strongElement,
-    ' Element'
-  );
-
-  const rootElement = document.getElementById('root');
-  const virtualDomRoot = createRoot(rootElement);
-  // console.log(virtualDomRoot);
-
-  virtualDomRoot.render(headingElement);
-}
-
-demo2();
+console.log('TypeScript 파일 수정');

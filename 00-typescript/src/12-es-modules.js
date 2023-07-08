@@ -11,14 +11,14 @@ function shuffle(list) {
 }
 
 function numberWithComma(n) {
-  return n.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+  return n.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
 }
 
 // --------------------------------------------------------------------------
 
 function createElement(type, props = {}, ...children) {
   return {
-    $$typeof: Symbol('virtual-element'),
+    $$typeof: Symbol("virtual-element"),
     type,
     key: props?.key ?? null,
     props: { ...props, children: [...(props?.children ?? []), ...children] },
@@ -31,7 +31,7 @@ class VirtualDomRoot {
   }
 
   #parseVNode(vNode) {
-    if (typeof vNode === 'string') return vNode;
+    if (typeof vNode === "string") return vNode;
 
     const { type, props } = vNode;
 
@@ -40,7 +40,7 @@ class VirtualDomRoot {
     delete props.children;
 
     Object.entries(props).forEach(([key, value]) => {
-      if (key === 'className') {
+      if (key === "className") {
         element.classList.add(value);
       } else {
         element.setAttribute(key, value);
@@ -48,7 +48,7 @@ class VirtualDomRoot {
     });
 
     children.forEach((child) => {
-      if (typeof child === 'string') {
+      if (typeof child === "string") {
         element.append(child);
       } else {
         element.append(this.#parseVNode(child));

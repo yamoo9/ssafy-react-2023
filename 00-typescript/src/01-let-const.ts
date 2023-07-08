@@ -8,5 +8,5 @@
     console.log(i); //
   }
 
-  // console.log(i);
+  // console.log(i);    //바깥쪽에서 쓰면 읽어올 수 없음
 }
