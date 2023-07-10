@@ -8,10 +8,14 @@
     "vscode": "^1.79.0"
   },
   "scripts": {
-    "dev": "vite"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "4.0.2",
+    "eslint": "8.44.0",
+    "eslint-plugin-react": "7.32.2",
     "vite": "4.4.2"
   },
   "dependencies": {
