@@ -1,6 +1,5 @@
+import './styles/App.css';
 /* eslint-disable no-unused-vars */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 
 // 스타일 및 에셋 연결
 
@@ -23,10 +22,16 @@ const reactLibrary = {
   license: 'MIT',
 };
 
+let mounted = 0;
+
+// 함수 컴포넌트가 순수한지 어떻게 체크할까?
+
 function App() {
   const renderList = () => {
     return null;
   };
+
+  console.log(++mounted); // 0 → 1
 
   return (
     <div className="App">
