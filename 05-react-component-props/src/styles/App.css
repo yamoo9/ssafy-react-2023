@@ -1,0 +1,143 @@
+.App {
+  --min-size: 240px;
+  --max-size: 960px;
+
+  position: relative;
+  width: clamp(var(--min-size), 90vw, var(--max-size));
+  height: clamp(var(--min-size), 50vw, var(--max-size));
+  margin: 60px auto;
+  border: 4px solid currentColor;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #fff;
+  color: #3c5687;
+
+  overflow-y: auto;
+
+  & h1 {
+    margin: 0;
+  }
+
+  & hr {
+    border: 0;
+    border-bottom: 1px dashed currentColor;
+    padding:0;
+  }
+
+  & p {
+    margin: 12px 0;
+  }
+
+  & picture {
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+
+  
+  .descriptionList {
+    margin: 0;
+    & dt {
+      margin-top: 24px;
+      font-weight: 600;
+    }
+    & dd {
+      margin: 4px 0 0 0;
+      border-bottom: 0.1px dashed currentColor;
+      padding-bottom: 4px;
+      font-weight: 300;
+
+      &:last-child {
+        border-bottom: 0;
+        padding-bottom: 0;
+      }
+    }
+  }
+  
+  .status {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 0;
+  }
+
+  .spinner {
+    order: -1;
+    height: 48px;
+    margin-right: 4px;
+  }
+
+  .conditionalRendering {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    padding: 12px 0;
+
+    & img {
+      height: 40px;
+      margin-right: 8px;
+    }
+
+    & span {
+      font-size: 14px;
+      font-weight: 500;
+    }
+  }
+
+  .renderList {
+    list-style: hangul;
+    margin: 8px 0;
+    padding-left: 22px;
+
+    & li {
+      padding: 2px 0;
+    }
+  }
+
+  .reactLibrary {
+    margin: 0;
+
+    & div {
+      display: flex;
+      align-items: center;
+    }
+    & dt {
+      flex: 0 0 100px;
+      margin-top: 0;
+    }
+    & dd {
+      border-bottom: 0;
+    }
+  }
+
+  .buttonGroup {
+    --size: 48px;
+    text-align: right;
+    
+    & button {
+      width: var(--size);
+      height: var(--size);
+      border: 0;
+      padding: 0;
+      line-height: 0;
+      font-size: 3rem;
+      background: transparent;
+      color: inherit;
+
+      & svg {
+        pointer-events: none;
+      }
+    }
+    
+    .scrollDown {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+    }
+
+    .scrollUp {
+      bottom: 16px;
+      right: 16px;
+      rotate: 180deg;
+      translate: 0 8px;
+    }
+  }
+}

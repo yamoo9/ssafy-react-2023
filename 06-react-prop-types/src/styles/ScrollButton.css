@@ -1,0 +1,32 @@
+.ScrollButtonGroup {
+  --size: 48px;
+  text-align: right;
+  
+  & button {
+    width: var(--size);
+    height: var(--size);
+    border: 0;
+    padding: 0;
+    line-height: 0;
+    font-size: 3rem;
+    background: transparent;
+    color: inherit;
+
+    & svg {
+      pointer-events: none;
+    }
+  }
+  
+  .scrollDown {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+  }
+
+  .scrollUp {
+    bottom: 16px;
+    right: 16px;
+    rotate: 180deg;
+    translate: 0 8px;
+  }
+}
