@@ -21,7 +21,7 @@
   & hr {
     border: 0;
     border-bottom: 1px dashed currentColor;
-    padding:0;
+    padding: 0;
   }
 
   & p {
@@ -33,7 +33,6 @@
     margin-bottom: 8px;
   }
 
-  
   .descriptionList {
     margin: 0;
     & dt {
@@ -52,7 +51,7 @@
       }
     }
   }
-  
+
   .status {
     display: inline-flex;
     align-items: center;
@@ -111,7 +110,7 @@
   .buttonGroup {
     --size: 48px;
     text-align: right;
-    
+
     & button {
       width: var(--size);
       height: var(--size);
@@ -126,7 +125,7 @@
         pointer-events: none;
       }
     }
-    
+
     .scrollDown {
       position: absolute;
       top: 16px;
