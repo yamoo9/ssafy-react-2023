@@ -1,26 +1,6 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-
 import { DescriptionList } from '../components';
+import ScrollButton from '../components/ScrollButton/ScrollButton';
 import './App.css';
-
-const handleScrollMove = ({ currentTarget, target }) => {
-  const { top } = currentTarget.getBoundingClientRect();
-  const appElement = document.querySelector('.App');
-
-  if (target.matches('.scrollDown')) {
-    appElement.scroll({
-      top,
-      behavior: 'smooth',
-    });
-  }
-  if (target.matches('.scrollUp')) {
-    appElement.scroll({
-      top: 0,
-      behavior: 'smooth',
-    });
-  }
-};
 
 function App() {
   return (
@@ -31,54 +11,10 @@ function App() {
 
       <DescriptionList />
 
-      <div role="group" className="buttonGroup" onClick={handleScrollMove}>
-        <button
-          type="button"
-          className="scrollDown"
-          aria-label="스크롤 다운"
-          title="스크롤 다운"
-        >
-          <svg
-            fill="currentColor"
-            strokeWidth={0}
-            viewBox="0 0 512 512"
-            height="1em"
-            width="1em"
-          >
-            <path
-              d="m112 268 144 144 144-144M256 392V100"
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="square"
-              strokeMiterlimit={10}
-              strokeWidth="48px"
-            />
-          </svg>
-        </button>
-        <button
-          type="button"
-          className="scrollUp"
-          aria-label="스크롤 업"
-          title="스크롤 업"
-        >
-          <svg
-            fill="currentColor"
-            strokeWidth={0}
-            viewBox="0 0 512 512"
-            height="1em"
-            width="1em"
-          >
-            <path
-              d="m112 268 144 144 144-144M256 392V100"
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="square"
-              strokeMiterlimit={10}
-              strokeWidth="48px"
-            />
-          </svg>
-        </button>
-      </div>
+      <ScrollButton.Group>
+        <ScrollButton mode="down" label="App 영역 끌어 내리기" />
+        <ScrollButton mode="up" />
+      </ScrollButton.Group>
     </div>
   );
 }

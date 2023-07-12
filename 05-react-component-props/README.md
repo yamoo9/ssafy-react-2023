@@ -4,12 +4,12 @@ React 엘리먼트(element)를 반환하는 컴포넌트(component), Props를 �
 
 ## DescriptionList
 
-- [ ] DescriptionList.jsx
-- [ ] DescriptionList.css
+- [x] DescriptionList.jsx
+- [x] DescriptionList.css
 
 ## ScrollButton
 
-- [ ] ScrollButton.jsx
-  - [ ] ScrollButton
-  - [ ] ScrollButton.Group
-- [ ] ScrollButton.css
+- [x] ScrollButton.jsx
+  - [x] ScrollButton
+  - [x] ScrollButton.Group
+- [x] ScrollButton.css
