@@ -61,7 +61,7 @@ function App() {
       <DescriptionList {...descriptionListProps} />
       <ScrollButton.Group onScroll={handleScrollMove}>
         <ScrollButton />
-        <ScrollButton mode="up" />
+        <ScrollButton mode="up" label="위로 끌어 올리기" />
       </ScrollButton.Group>
     </div>
   );

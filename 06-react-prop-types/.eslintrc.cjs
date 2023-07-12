@@ -12,7 +12,7 @@ module.exports = {
   ],
   rules: {
     'react-refresh/only-export-components': 'warn',
-    'react/prop-types': 'off',
+    // 'react/prop-types': 'off',
     'import/no-unresolved': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/no-noninteractive-element-interactions': 'off',
