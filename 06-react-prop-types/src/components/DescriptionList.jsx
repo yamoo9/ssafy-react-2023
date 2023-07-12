@@ -1,5 +1,6 @@
-import '../styles/DescriptoinList.css';
+import PropTypes from 'prop-types';
 import vitePath from '../assets/vite.svg';
+import '../styles/DescriptoinList.css';
 import reactPath from '/react.svg';
 
 function DescriptionList({
@@ -72,5 +73,19 @@ function DescriptionList({
     </dl>
   );
 }
+
+DescriptionList.propTypes = {
+  statusMessage: PropTypes.arrayOf(PropTypes.string).isRequired,
+  imageType: PropTypes.oneOf(['react', 'vite']).isRequired,
+  isShowReactImage: PropTypes.bool.isRequired,
+  renderList: PropTypes.func.isRequired,
+  reactLibrary: PropTypes.shape({
+    name: PropTypes.string,
+    author: PropTypes.string,
+    writtenIn: PropTypes.string,
+    type: PropTypes.string,
+    license: PropTypes.string,
+  }).isRequired,
+};
 
 export default DescriptionList;

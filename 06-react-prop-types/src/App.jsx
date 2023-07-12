@@ -3,7 +3,7 @@ import './styles/App.css';
 import ScrollButton from './components/ScrollButton';
 import DescriptionList from './components/DescriptionList';
 
-const imageType = 'react';
+let imageType = 'react'; // 'react' | 'vite'
 
 const isShowReactImage = true;
 
@@ -58,10 +58,11 @@ function App() {
     <div className="App">
       <h1>React 컴포넌트 Props 검사</h1>
       <hr />
+      {/* 객체 전개 구문  */}
       <DescriptionList {...descriptionListProps} />
       <ScrollButton.Group onScroll={handleScrollMove}>
         <ScrollButton />
-        <ScrollButton mode="up" label="위로 끌어 올리기" />
+        <ScrollButton mode="up" />
       </ScrollButton.Group>
     </div>
   );

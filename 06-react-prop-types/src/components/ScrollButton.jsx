@@ -1,6 +1,7 @@
+import PropTypes from 'prop-types';
 import '../styles/ScrollButton.css';
 
-function ScrollButton({ mode, label }) {
+function ScrollButton({ mode = 'down', label = '스크롤 다운' }) {
   const isDown = mode === 'down';
   const buttonLabel = label ?? `스크롤 ${isDown ? '다운' : '업'}`;
 
@@ -31,35 +32,10 @@ function ScrollButton({ mode, label }) {
   );
 }
 
-ScrollButton.defaultProps = {
-  mode: 'down',
-  label: '스크롤 다운',
-};
-
+// prop-types 라이브러리 활용 Props 타입 검사
 ScrollButton.propTypes = {
-  // 컴포넌트 Props 매뉴얼 검사
-  mode(props, propName, componentName) {
-    // 검사 코드 작성
-    const value = props[propName];
-    const valueType = typeof value;
-    // 전달된 prop 타입 검사 후, 타입이 일치하지 않을 경우 오류 발생
-    if (valueType !== 'string') {
-      throw new Error(
-        `${componentName} 컴포넌트에 전달된 "${propName}" prop은 기대되는 타입이 "string"이나, 실제 전달된 타입은 "${valueType}"입니다.`
-      );
-    }
-  },
-  label(props, propName, componentName) {
-    // 검사 코드 작성
-    const value = props[propName];
-    const valueType = typeof value;
-    // 전달된 prop 타입 검사 후, 타입이 일치하지 않을 경우 오류 발생
-    if (valueType !== 'string') {
-      throw new Error(
-        `${componentName} 컴포넌트에 전달된 "${propName}" prop은 기대되는 타입이 "string"이나, 실제 전달된 타입은 "${valueType}"입니다.`
-      );
-    }
-  },
+  mode: PropTypes.string,
+  label: PropTypes.string,
 };
 
 ScrollButton.Group = function ScrollButtonGroup({ onScroll, children }) {
@@ -68,6 +44,15 @@ ScrollButton.Group = function ScrollButtonGroup({ onScroll, children }) {
       {children}
     </div>
   );
+};
+
+// PropTypes.node -> React.ReactNode
+// PropTypes.element -> React.ReactElement
+// PropTypes.elementType -> React.Component
+
+ScrollButton.Group.propTypes = {
+  onScroll: PropTypes.func,
+  children: PropTypes.node, // React.ReactNode
 };
 
 export default ScrollButton;
