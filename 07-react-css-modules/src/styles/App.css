@@ -1,0 +1,35 @@
+.App {
+  --min-size: 240px;
+  --max-size: 960px;
+
+  position: relative;
+  width: clamp(var(--min-size), 90vw, var(--max-size));
+  height: clamp(var(--min-size), 50vw, var(--max-size));
+  margin: 60px auto;
+  border: 4px solid currentColor;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #fff;
+  color: #3c5687;
+
+  overflow-y: auto;
+
+  & h1 {
+    margin: 0;
+  }
+
+  & hr {
+    border: 0;
+    border-bottom: 1px dashed currentColor;
+    padding:0;
+  }
+
+  & p {
+    margin: 12px 0;
+  }
+
+  & picture {
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+}

@@ -1,0 +1,68 @@
+.Game {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  
+  --primary-color: #1b1a19;
+  --secondary-color: #f7f3ed;
+  --square-size: 80px;
+}
+
+.Board {
+  display: flex;
+  flex-flow: column;
+  gap: 12px;
+}
+
+.Status {
+  font-size: 20px;
+}
+
+.Squares {
+  --board-size: calc(var(--square-size) * 3);
+  width: var(--board-size);
+  height: var(--board-size);
+
+  border: 3px solid var(--primary-color);
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.Square {
+  width: var(--square-size);
+  height: var(--square-size);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border: 0.1px solid var(--primary-color);
+  padding: 0;
+  color: var(--primary-color);
+  font-size: 20px;
+}
+
+.History {
+  margin-top: 38px;
+  min-width: 100px;
+}
+
+.History ol {
+  margin: 0;
+  padding-left: 0;
+  display: flex;
+  flex-flow: column;
+  gap: 8px;
+}
+
+
+.History li {
+  list-style-type: decimal-leading-zero;
+}
+
+.History button {
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  border: 0;
+  border-radius: 4px;
+  padding: 0.4em 0.8em;
+}
