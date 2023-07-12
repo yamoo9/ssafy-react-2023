@@ -65,3 +65,9 @@
   align-items: center;
   padding: 4px 0;
 }
+
+.spinner {
+  order: -1;
+  height: 48px;
+  margin-right: 4px;
+}

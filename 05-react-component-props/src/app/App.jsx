@@ -1,5 +1,4 @@
-import { DescriptionList } from '../components';
-import ScrollButton from '../components/ScrollButton/ScrollButton';
+import { DescriptionList, ScrollButton } from '../components';
 import './App.css';
 
 function App() {
