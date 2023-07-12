@@ -1,7 +1,37 @@
-import { oneOf, arrayOf, string, bool, func, shape } from 'prop-types';
+// @ts-nocheck
+
+import PropTypes from 'prop-types';
 import vitePath from '../assets/vite.svg';
 import '../styles/DescriptoinList.css';
 import reactPath from '/react.svg';
+
+interface Props {
+  statusMessage: string[];
+  imageType: 'react' | 'vite';
+  isShowReactImage: boolean;
+  renderList: () => JSX.Element[];
+  reactLibrary: {
+    name: string;
+    author: string;
+    writtenIn: string;
+    type: string;
+    license: string;
+  };
+}
+
+DescriptionList.propTypes = {
+  statusMessage: PropTypes.arrayOf(PropTypes.string).isRequired,
+  imageType: PropTypes.oneOf(['react', 'vite']).isRequired,
+  isShowReactImage: PropTypes.bool.isRequired,
+  renderList: PropTypes.func.isRequired,
+  reactLibrary: PropTypes.shape({
+    name: PropTypes.string,
+    author: PropTypes.string,
+    writtenIn: PropTypes.string,
+    type: PropTypes.string,
+    license: PropTypes.string,
+  }).isRequired,
+};
 
 function DescriptionList({
   statusMessage,
@@ -9,7 +39,7 @@ function DescriptionList({
   isShowReactImage,
   renderList,
   reactLibrary,
-}) {
+}: Props) {
   return (
     <dl className="descriptionList">
       <dt>데이터 바인딩(data binding)</dt>
@@ -73,19 +103,5 @@ function DescriptionList({
     </dl>
   );
 }
-
-DescriptionList.propTypes = {
-  statusMessage: arrayOf(string).isRequired,
-  imageType: oneOf(['react', 'vite']).isRequired,
-  isShowReactImage: bool.isRequired,
-  renderList: func.isRequired,
-  reactLibrary: shape({
-    name: string,
-    author: string,
-    writtenIn: string,
-    type: string,
-    license: string,
-  }).isRequired,
-};
 
 export default DescriptionList;
