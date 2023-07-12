@@ -21,7 +21,7 @@
   & hr {
     border: 0;
     border-bottom: 1px dashed currentColor;
-    padding:0;
+    padding: 0;
   }
 
   & p {
@@ -32,4 +32,9 @@
     display: inline-block;
     margin-bottom: 8px;
   }
+}
+
+.container {
+  max-inline-size: 1280px;
+  margin-inline: auto;
 }

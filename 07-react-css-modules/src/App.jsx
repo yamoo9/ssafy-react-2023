@@ -1,7 +1,10 @@
-import './styles/App.css';
+import classes from './styles/App.module.css';
 
 import ScrollButton from './components/ScrollButton';
 import DescriptionList from './components/DescriptionList';
+
+// console.log(classes.App);
+// console.log(classes.demo);
 
 const imageType = 'react';
 
@@ -27,9 +30,17 @@ const renderList = ({ isReverse = false } = {}) => {
   return data.map((message, index) => <li key={index}>{message}</li>);
 };
 
+// Thinking in React
+
 const handleScrollMove = ({ currentTarget, target }) => {
   const { top } = currentTarget.getBoundingClientRect();
-  const appElement = document.querySelector('.App');
+  const appElement = document.querySelector('._App_qnegi_1');
+
+  if (!appElement) {
+    throw new Error('appElement가 문서에 존재하지 않습니다.');
+  }
+
+  console.log(appElement);
 
   if (target.matches('.scrollDown')) {
     appElement.scroll({
@@ -55,14 +66,16 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <h1>CSS 모듈 &amp; 절대 경로</h1>
-      <hr />
-      <DescriptionList {...descriptionListProps} />
-      <ScrollButton.Group onScroll={handleScrollMove}>
-        <ScrollButton />
-        <ScrollButton mode="up" />
-      </ScrollButton.Group>
+    <div className={classes.App}>
+      <div className={classes.container}>
+        <h1>CSS 모듈 &amp; 절대 경로</h1>
+        <hr />
+        <DescriptionList {...descriptionListProps} />
+        <ScrollButton.Group onScroll={handleScrollMove}>
+          <ScrollButton />
+          <ScrollButton mode="up" />
+        </ScrollButton.Group>
+      </div>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import { func, node, oneOf } from 'prop-types';
-import '../styles/ScrollButton.css';
+import s from '../styles/ScrollButton.module.css';
 
 function ScrollButton({ mode = 'down' }) {
   const isDown = mode === 'down';
@@ -8,7 +8,8 @@ function ScrollButton({ mode = 'down' }) {
   return (
     <button
       type="button"
-      className={isDown ? 'scrollDown' : 'scrollUp'}
+      className={isDown ? s.scrollDown : s.scrollUp}
+      // className={s.scrollDown}
       aria-label={buttonLabel}
       title={buttonLabel}
     >
@@ -40,7 +41,7 @@ export default ScrollButton;
 
 ScrollButton.Group = function ButtonGroup({ onScroll, children }) {
   return (
-    <div role="group" className="ScrollButtonGroup" onClick={onScroll}>
+    <div role="group" className={s.ScrollButtonGroup} onClick={onScroll}>
       {children}
     </div>
   );
