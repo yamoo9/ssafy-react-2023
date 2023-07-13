@@ -1,37 +1,22 @@
-// @ts-nocheck
-
-import PropTypes from 'prop-types';
-import vitePath from '../assets/vite.svg';
 import '../styles/DescriptoinList.css';
+import vitePath from '../assets/vite.svg';
 import reactPath from '/react.svg';
 
 interface Props {
   statusMessage: string[];
   imageType: 'react' | 'vite';
   isShowReactImage: boolean;
-  renderList: () => JSX.Element[];
+  renderList: ({
+    isReverse,
+  }?: {
+    isReverse?: boolean | undefined;
+  }) => React.ReactNode[];
   reactLibrary: {
-    name: string;
-    author: string;
-    writtenIn: string;
-    type: string;
-    license: string;
+    [key: string]: string;
   };
 }
 
-DescriptionList.propTypes = {
-  statusMessage: PropTypes.arrayOf(PropTypes.string).isRequired,
-  imageType: PropTypes.oneOf(['react', 'vite']).isRequired,
-  isShowReactImage: PropTypes.bool.isRequired,
-  renderList: PropTypes.func.isRequired,
-  reactLibrary: PropTypes.shape({
-    name: PropTypes.string,
-    author: PropTypes.string,
-    writtenIn: PropTypes.string,
-    type: PropTypes.string,
-    license: PropTypes.string,
-  }).isRequired,
-};
+/* -------------------------------------------------------------------------- */
 
 function DescriptionList({
   statusMessage,
@@ -39,7 +24,7 @@ function DescriptionList({
   isShowReactImage,
   renderList,
   reactLibrary,
-}: Props) {
+}: Props): JSX.Element {
   return (
     <dl className="descriptionList">
       <dt>데이터 바인딩(data binding)</dt>
