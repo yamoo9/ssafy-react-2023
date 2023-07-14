@@ -27,7 +27,7 @@ const renderList = ({ isReverse = false } = {}) => {
   return data.map((message, index) => <li key={index}>{message}</li>);
 };
 
-const handleScrollMove = ({ currentTarget, target }) => {
+const handleScrollMove = ({ currentTarget, target } /* Event Object */) => {
   const { top } = currentTarget.getBoundingClientRect();
   const appElement = document.querySelector('.App');
 

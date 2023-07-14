@@ -1,4 +1,3 @@
-import { MouseEventHandler } from 'react';
 import '../styles/ScrollButton.css';
 
 interface ScrollButtonProps {
@@ -43,7 +42,7 @@ function ScrollButton({
 /* -------------------------------------------------------------------------- */
 
 interface ScrollButtonGroupProps {
-  onScroll: MouseEventHandler<HTMLDivElement>;
+  onScroll: React.MouseEventHandler<HTMLDivElement>;
   children: React.ReactNode;
 }
 

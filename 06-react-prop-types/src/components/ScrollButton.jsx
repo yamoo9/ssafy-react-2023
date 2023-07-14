@@ -32,7 +32,6 @@ function ScrollButton({ mode = 'down', label = '스크롤 다운' }) {
   );
 }
 
-// prop-types 라이브러리 활용 Props 타입 검사
 ScrollButton.propTypes = {
   mode: PropTypes.string,
   label: PropTypes.string,
@@ -45,10 +44,6 @@ ScrollButton.Group = function ScrollButtonGroup({ onScroll, children }) {
     </div>
   );
 };
-
-// PropTypes.node -> React.ReactNode
-// PropTypes.element -> React.ReactElement
-// PropTypes.elementType -> React.Component
 
 ScrollButton.Group.propTypes = {
   onScroll: PropTypes.func,
