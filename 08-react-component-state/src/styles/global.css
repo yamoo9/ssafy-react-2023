@@ -20,6 +20,11 @@ img {
 button {
   cursor: pointer;
   font-size: inherit;
+
+  border: 0;
+  padding: 8px 20px;
+  border-radius: 4px;
+
   &:disabled {
     cursor: not-allowed;
   }
@@ -28,4 +33,8 @@ button {
 abbr[title] {
   cursor: help;
   text-decoration: none;
+}
+
+[hidden] {
+  display: none !important;
 }
