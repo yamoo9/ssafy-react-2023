@@ -1,7 +1,7 @@
+import React from 'react';
+
 import styles from './App.module.css';
 import { ScrollButton, DescriptionList } from '@/components';
-
-const imageType = 'react';
 
 const isShowReactImage = true;
 
@@ -43,20 +43,41 @@ const handleScrollMove = ({ currentTarget, target }) => {
   }
 };
 
+// ---------------------------------------------------------
+// 선언형 프로그래밍
+// ---------------------------------------------------------
+// 상태 선언
+// 상태 업데이트
+// React 재조정 알고리즘 (변경 감지)
+// 컴포넌트 다시 렌더링 (하위에 포함된 컴포넌트 모두 다시 렌더링 : 성능 저하)
+
 function App() {
-  const descriptionListProps = {
-    statusMessage,
-    imageType,
-    isShowReactImage,
-    renderList,
-    reactLibrary,
-  };
+  const [imageType, setImageType] = React.useState('react');
 
   return (
     <div className={styles.container}>
       <h1>React 컴포넌트 상태 관리</h1>
+      <button
+        type="button"
+        onClickCapture={() => {
+          // DOM 요소 접근/조작
+          // 사이드 이펙트 처리
+          // 선언된 상태 업데이트 → UI 리-렌더링
+          setImageType(imageType === 'react' ? 'vite' : 'react');
+        }}
+      >
+        change imageType
+      </button>
       <hr />
-      <DescriptionList {...descriptionListProps} />
+      <DescriptionList
+        {...{
+          statusMessage,
+          imageType,
+          isShowReactImage,
+          renderList,
+          reactLibrary,
+        }}
+      />
       <ScrollButton.Group onScroll={handleScrollMove}>
         <ScrollButton />
         <ScrollButton mode="up" />
