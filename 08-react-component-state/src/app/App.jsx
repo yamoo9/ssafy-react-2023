@@ -45,7 +45,7 @@ function App() {
     setStatusMessage([newStatusMessage, ...statusMessage]);
   };
 
-  const handleDeleteStatueMessage = (deleteIndex) => {
+  const handleDeleteStatusMessage = (deleteIndex) => {
     setStatusMessage(statusMessage.filter((_, i) => i !== deleteIndex));
   };
 
@@ -59,7 +59,7 @@ function App() {
         {message}
         <button
           onClick={() => {
-            handleDeleteStatueMessage(
+            handleDeleteStatusMessage(
               !isReverse ? index : data.length - (index + 1)
             );
           }}
