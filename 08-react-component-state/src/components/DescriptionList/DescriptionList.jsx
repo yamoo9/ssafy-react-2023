@@ -1,26 +1,33 @@
-import { arrayOf, bool, exact, func, oneOf, string } from 'prop-types';
-import styles from './DescriptionList.module.css';
 import vitePath from '@/assets/vite.svg';
+import { arrayOf, bool, exact, func, oneOf, string } from 'prop-types';
+import { useState } from 'react';
+import styles from './DescriptionList.module.css';
 import reactPath from '/react.svg';
 
 function DescriptionList({
   statusMessage,
-  onUpdateStatusMessage,
+  onAddStatusMessage,
   imageType,
   isShowReactImage,
   renderList,
   reactLibrary,
+  onUpdateReactLibrary,
 }) {
+  const [editMode, setEditMode] = useState(false);
+
   const handleAddStatusMessage = (e) => {
     e.preventDefault();
-    const {
-      newStatusMessage: { value },
-    } = e.target;
+    const { newStatusMessage } = e.target;
+
+    const { value } = newStatusMessage;
 
     // 입력 조건 (새로운 상태 메시지의 값이 0보다 크다)
     if (value.trim().length > 0) {
       // 새로운 상태 메시지로 추가
-      onUpdateStatusMessage?.(value);
+      onAddStatusMessage?.(value);
+      newStatusMessage.value = '';
+    } else {
+      newStatusMessage.select();
     }
   };
 
@@ -87,12 +94,58 @@ function DescriptionList({
           React 라이브러리(reactLibrary) 객체의 키, 값을 리스트 렌더링합니다.
         </p>
         <dl className={styles.reactLibrary}>
-          {Object.entries(reactLibrary).map(([key, value]) => (
-            <div key={key}>
-              <dt>{key}</dt>
-              <dd>{value}</dd>
+          {!editMode ? (
+            <>
+              {Object.entries(reactLibrary).map(([key, value]) => (
+                <div key={key}>
+                  <dt>{key}</dt>
+                  <dd>{value}</dd>
+                </div>
+              ))}
+              <button
+                type="button"
+                style={{ marginTop: 12 }}
+                onClick={() => setEditMode(true)}
+              >
+                수정
+              </button>
+            </>
+          ) : (
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'flex-start',
+              }}
+            >
+              <h2>에디트 모드</h2>
+              <form className="editForm">
+                {Object.entries(reactLibrary).map(([key, value]) => (
+                  <div key={key} className="formControl">
+                    <label htmlFor={key}>{key}</label>
+                    <input id={key} type="text" defaultValue={value} />
+                  </div>
+                ))}
+              </form>
+              <button
+                type="button"
+                onClick={() => {
+                  const editForm = document.querySelector('.editForm');
+                  const { name, author, writtenIn, type, license } = editForm;
+                  onUpdateReactLibrary({
+                    name: name.value,
+                    author: author.value,
+                    writtenIn: writtenIn.value,
+                    type: type.value,
+                    license: license.value,
+                  });
+                  setEditMode(false);
+                }}
+              >
+                저장
+              </button>
             </div>
-          ))}
+          )}
         </dl>
       </dd>
     </dl>
@@ -108,7 +161,7 @@ DescriptionList.propTypes = {
     string
     // oneOf(['⌛️ 대기', '⏳ 로딩 중...', '✅ 로딩 성공!', '❌ 로딩 실패.'])
   ).isRequired,
-  onUpdateStatusMessage: func,
+  onAddStatusMessage: func,
   imageType: oneOf(['react', 'vite']).isRequired,
   isShowReactImage: bool.isRequired,
   renderList: func, // () => void | undefined
@@ -119,6 +172,7 @@ DescriptionList.propTypes = {
     type: string,
     license: string,
   }).isRequired,
+  onUpdateReactLibrary: func,
 };
 
 export default DescriptionList;

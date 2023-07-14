@@ -3,14 +3,6 @@ import React from 'react';
 import styles from './App.module.css';
 import { ScrollButton, DescriptionList } from '@/components';
 
-const reactLibrary = {
-  name: 'React',
-  author: '조던 워케(Jordan Walke)',
-  writtenIn: 'JavaScript',
-  type: 'JavaScript 라이브러리',
-  license: 'MIT',
-};
-
 const handleScrollMove = ({ currentTarget, target }) => {
   const { top } = currentTarget.getBoundingClientRect();
   const appElement = document.getElementById('root')?.firstElementChild;
@@ -49,13 +41,45 @@ function App() {
     '❌ 로딩 실패.',
   ]);
 
-  const handleUpdateStatusMessage = (newStatusMessage) => {
+  const handleAddStatusMessage = (newStatusMessage) => {
     setStatusMessage([newStatusMessage, ...statusMessage]);
   };
 
+  const handleDeleteStatueMessage = (deleteIndex) => {
+    setStatusMessage(statusMessage.filter((_, i) => i !== deleteIndex));
+  };
+
   const renderList = ({ isReverse = false } = {}) => {
-    const data = !isReverse ? statusMessage : statusMessage.reverse();
-    return data.map((message, index) => <li key={index}>{message}</li>);
+    // mutable ❌
+    // immutable ✅
+    const data = !isReverse ? statusMessage : [...statusMessage].reverse();
+
+    return data.map((message, index) => (
+      <li key={index}>
+        {message}
+        <button
+          onClick={() => {
+            handleDeleteStatueMessage(
+              !isReverse ? index : data.length - (index + 1)
+            );
+          }}
+        >
+          delete
+        </button>
+      </li>
+    ));
+  };
+
+  const [reactLibrary, setReactLibrary] = React.useState({
+    name: 'React',
+    author: '조던 워케(Jordan Walke)',
+    writtenIn: 'JavaScript',
+    type: 'JavaScript 라이브러리',
+    license: 'MIT',
+  });
+
+  const handleUpdateReactLibrary = (newReactLibrary) => {
+    setReactLibrary(newReactLibrary);
   };
 
   return (
@@ -101,7 +125,8 @@ function App() {
           isShowReactImage,
           renderList,
           reactLibrary,
-          onUpdateStatusMessage: handleUpdateStatusMessage,
+          onAddStatusMessage: handleAddStatusMessage,
+          onUpdateReactLibrary: handleUpdateReactLibrary,
         }}
       />
       <ScrollButton.Group onScroll={handleScrollMove}>
