@@ -42,12 +42,16 @@ function App() {
   const [isShowReactImage, setIsShowReactImage] = React.useState(true);
 
   const [descKey, setDescKey] = React.useState(9);
-  const [statusMessage] /* read-only */ = React.useState([
+  const [statusMessage, setStatusMessage] = React.useState([
     '⌛️ 대기',
     '⏳ 로딩 중...',
     '✅ 로딩 성공!',
     '❌ 로딩 실패.',
   ]);
+
+  const handleUpdateStatusMessage = (newStatusMessage) => {
+    setStatusMessage([newStatusMessage, ...statusMessage]);
+  };
 
   const renderList = ({ isReverse = false } = {}) => {
     const data = !isReverse ? statusMessage : statusMessage.reverse();
@@ -97,6 +101,7 @@ function App() {
           isShowReactImage,
           renderList,
           reactLibrary,
+          onUpdateStatusMessage: handleUpdateStatusMessage,
         }}
       />
       <ScrollButton.Group onScroll={handleScrollMove}>

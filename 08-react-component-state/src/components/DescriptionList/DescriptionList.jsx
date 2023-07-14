@@ -5,11 +5,25 @@ import reactPath from '/react.svg';
 
 function DescriptionList({
   statusMessage,
+  onUpdateStatusMessage,
   imageType,
   isShowReactImage,
   renderList,
   reactLibrary,
 }) {
+  const handleAddStatusMessage = (e) => {
+    e.preventDefault();
+    const {
+      newStatusMessage: { value },
+    } = e.target;
+
+    // 입력 조건 (새로운 상태 메시지의 값이 0보다 크다)
+    if (value.trim().length > 0) {
+      // 새로운 상태 메시지로 추가
+      onUpdateStatusMessage?.(value);
+    }
+  };
+
   return (
     <dl className={styles.container}>
       <dt>데이터 바인딩(data binding)</dt>
@@ -54,6 +68,13 @@ function DescriptionList({
       </dd>
       <dt>리스트 렌더링(list rendering)</dt>
       <dd>
+        <form onSubmit={handleAddStatusMessage}>
+          <div className="formControl">
+            <label htmlFor="newStatusMessage">새로운 상태 메시지</label>
+            <input id="newStatusMessage" name="newStatusMessage" type="text" />
+          </div>
+          <button type="submit">추가</button>
+        </form>
         <p>상태 메시지(status message) 배열을 리스트 렌더링합니다.</p>
         <ul className={styles.renderList}>{renderList()}</ul>
       </dd>
@@ -84,11 +105,13 @@ DescriptionList.defaultProps = {
 
 DescriptionList.propTypes = {
   statusMessage: arrayOf(
-    oneOf(['⌛️ 대기', '⏳ 로딩 중...', '✅ 로딩 성공!', '❌ 로딩 실패.'])
+    string
+    // oneOf(['⌛️ 대기', '⏳ 로딩 중...', '✅ 로딩 성공!', '❌ 로딩 실패.'])
   ).isRequired,
+  onUpdateStatusMessage: func,
   imageType: oneOf(['react', 'vite']).isRequired,
   isShowReactImage: bool.isRequired,
-  renderList: func,
+  renderList: func, // () => void | undefined
   reactLibrary: exact({
     name: string,
     author: string,
