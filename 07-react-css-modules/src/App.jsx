@@ -1,7 +1,6 @@
 import classes from './styles/App.module.css';
 
-import ScrollButton from './components/ScrollButton';
-import DescriptionList from './components/DescriptionList';
+import { ScrollButton, DescriptionList } from '@/components';
 
 // console.log(classes.App);
 // console.log(classes.demo);

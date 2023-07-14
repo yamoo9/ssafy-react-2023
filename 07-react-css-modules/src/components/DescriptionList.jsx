@@ -1,6 +1,6 @@
 import { arrayOf, bool, exact, func, oneOf, string } from 'prop-types';
-import '../styles/DescriptoinList.css';
-import vitePath from '../assets/vite.svg';
+import '@/styles/DescriptoinList.css';
+import vitePath from '@/assets/vite.svg';
 import reactPath from '/react.svg';
 
 function DescriptionList({
