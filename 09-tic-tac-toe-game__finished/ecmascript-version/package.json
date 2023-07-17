@@ -1,0 +1,26 @@
+{
+  "private": true,
+  "type": "module",
+  "name": "tic-tac-toe-react",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@types/prop-types": "15.7.5",
+    "@types/react": "18.0.28",
+    "@types/react-dom": "18.0.11",
+    "@vitejs/plugin-react-swc": "3.0.0",
+    "eslint": "8.38.0",
+    "eslint-config-react-app": "7.0.1",
+    "eslint-plugin-jsx-a11y": "6.7.1",
+    "prop-types": "15.8.1",
+    "vite": "4.2.0"
+  }
+}
