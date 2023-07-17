@@ -1,13 +1,12 @@
-import { PLAYER1, PLAYER2 } from '@/constants';
 import classes from '@/styles/Game.module.css';
-import { oneOf } from 'prop-types';
+import { string } from 'prop-types';
 
-function Status({ nextPlayer }) {
-  return <h2 className={classes.Status}>플레이어 {nextPlayer}</h2>;
+function Status({ message }) {
+  return <h2 className={classes.Status}>{message}</h2>;
 }
 
 Status.propTypes = {
-  nextPlayer: oneOf([PLAYER1, PLAYER2]),
+  message: string.isRequired,
 };
 
 export default Status;
