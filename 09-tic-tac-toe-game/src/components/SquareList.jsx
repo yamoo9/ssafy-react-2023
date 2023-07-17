@@ -34,12 +34,16 @@ function SquareList({
   );
 }
 
+export const SquaresType = arrayOf(oneOf([null, PLAYER1, PLAYER2]));
+
+export const WinnerType = shape({
+  player: oneOf([PLAYER1, PLAYER2]),
+  condition: arrayOf(number),
+});
+
 SquareList.propTypes = {
-  squares: arrayOf(oneOf([null, PLAYER1, PLAYER2])),
-  winner: shape({
-    player: oneOf([PLAYER1, PLAYER2]),
-    condition: arrayOf(number),
-  }),
+  squares: SquaresType,
+  winner: WinnerType,
   handlePlay: func,
 };
 

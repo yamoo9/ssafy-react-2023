@@ -1,6 +1,6 @@
+import { PLAYER1, PLAYER2 } from '@/constants';
 import classes from '@/styles/Game.module.css';
-import { object } from 'prop-types';
-import { func, node } from 'prop-types';
+import { func, object, oneOf } from 'prop-types';
 
 function Square({ children, style, onClick }) {
   return (
@@ -16,8 +16,11 @@ function Square({ children, style, onClick }) {
   );
 }
 
+export const PlayerType = oneOf([null, PLAYER1, PLAYER2]);
+
 Square.propTypes = {
-  children: node,
+  // children: node,
+  children: PlayerType,
   style: object,
   onClick: func,
 };
