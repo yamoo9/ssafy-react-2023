@@ -1,9 +1,10 @@
 import { any, node } from 'prop-types';
 import S from '../Game.module.css';
+import { memo } from 'react';
 
 /* Square ------------------------------------------------------------------- */
 
-function Square({ children, ...restProps }) {
+const Square = memo(function Square({ children, ...restProps }) {
   return (
     <button
       type="button"
@@ -14,7 +15,7 @@ function Square({ children, ...restProps }) {
       {children}
     </button>
   );
-}
+});
 
 Square.propTypes = {
   children: node,

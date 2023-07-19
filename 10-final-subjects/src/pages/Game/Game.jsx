@@ -5,7 +5,7 @@ import { GameProvider } from './contexts/GameContext';
 export default function Game() {
   return (
     <GameProvider>
-      <div className={S.Game}>
+      <div className={`${S.Game} mt-20`}>
         <Board />
         <History />
       </div>

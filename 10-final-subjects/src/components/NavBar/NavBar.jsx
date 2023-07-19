@@ -1,31 +1,32 @@
+import { Link } from 'react-router-dom';
 import S from './NavBar.module.css';
 
 function NavBar() {
   return (
     <nav className={S.nav} lang="en">
       <div className={S.wrapper}>
-        <a href="/" className={S.homeLink}>
+        <Link to="/" className={S.homeLink}>
           <img
             src="https://tailwindui.com/img/logos/mark.svg?color=teal&shade=500"
             alt="tailwind css"
             className={S.logo}
           />
-        </a>
+        </Link>
         <ul className={S.list}>
           <li>
-            <a href="/game" className={S.link}>
+            <Link to="/game" className={S.link}>
               Game
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/notes" className={S.link}>
+            <Link to="/notes" className={S.link}>
               Notes
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/contacts" className={S.link}>
+            <Link to="/contacts" className={S.link}>
               Contacts
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
