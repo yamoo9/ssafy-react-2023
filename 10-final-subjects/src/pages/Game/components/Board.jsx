@@ -1,5 +1,5 @@
-import S from '../Game.module.css';
 import { arrayOf, func, oneOf } from 'prop-types';
+import S from '../Game.module.css';
 import {
   PLAYER,
   WINNER_COLOR,
@@ -8,8 +8,15 @@ import {
 } from '../constants';
 import Square from './Square';
 import Status from './Status';
+import { useGameState } from '../contexts/GameContext';
 
-function Board({ squares, nextPlayer, onPlay }) {
+function Board(/* { squares, nextPlayer, onPlay } */) {
+  const {
+    currentSquares: squares,
+    nextPlayer,
+    playGame: onPlay,
+  } = useGameState();
+
   const winner = checkWinner(squares);
   const isDraw = !winner && squares.every(Boolean);
 
@@ -57,9 +64,9 @@ const PlayerType = oneOf([PLAYER.circle, PLAYER.rectangle, null]);
 export const SquareType = arrayOf(PlayerType);
 
 Board.propTypes = {
-  squares: SquareType.isRequired,
-  nextPlayer: PlayerType.isRequired,
-  onPlay: func.isRequired,
+  squares: SquareType,
+  nextPlayer: PlayerType,
+  onPlay: func,
 };
 
 export default Board;

@@ -1,8 +1,11 @@
 import S from '../Game.module.css';
 import { arrayOf, func, number } from 'prop-types';
 import { SquareType } from './Board';
+import { useGameState } from '../contexts/GameContext';
 
-function History({ squares, gameIndex, onTravel }) {
+function History(/* { squares, gameIndex, onTravel } */) {
+  const { squares, gameIndex, travelGame: onTravel } = useGameState();
+
   return (
     <div className={S.History}>
       <ol>
@@ -27,9 +30,9 @@ function History({ squares, gameIndex, onTravel }) {
 }
 
 History.propTypes = {
-  squares: arrayOf(SquareType).isRequired,
-  gameIndex: number.isRequired,
-  onTravel: func.isRequired,
+  squares: arrayOf(SquareType),
+  gameIndex: number,
+  onTravel: func,
 };
 
 export default History;
