@@ -1,0 +1,15 @@
+body {
+  @apply box-border bg-slate-100/80 text-slate-900;
+
+  & * {
+    box-sizing: inherit;
+  }
+}
+
+button {
+  @apply cursor-pointer leading-none;
+
+  &:disabled {
+    @apply cursor-not-allowed;
+  }
+}

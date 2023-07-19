@@ -1,0 +1,8 @@
+:root {
+  --primary-color: #191b1b;
+  --secondary-color: #f7f3ed;
+
+  --scale: 1;
+  --square-size: calc(var(--scale) * 80px);
+  --player-size: calc(var(--scale) * 24px);
+}

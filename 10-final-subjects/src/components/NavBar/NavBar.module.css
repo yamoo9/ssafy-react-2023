@@ -1,0 +1,27 @@
+.nav {
+  @apply mb-20 border-b-[1px] border-solid border-slate-300/50 bg-slate-200 p-2 text-slate-700 shadow-lg shadow-slate-300/70;
+
+  * {
+    @apply outline-none focus:bg-teal-400/10 focus:ring-2 focus:ring-teal-400/70;
+  }
+}
+
+.wrapper {
+  @apply container mx-auto flex items-center justify-between px-4;
+}
+
+.homeLink {
+  @apply inline-block rounded-full p-1;
+}
+
+.logo {
+  @apply h-6 w-6;
+}
+
+.list {
+  @apply flex gap-x-3 text-slate-700/60;
+}
+
+.link {
+  @apply rounded-2xl px-2 py-1 text-sm leading-4;
+}

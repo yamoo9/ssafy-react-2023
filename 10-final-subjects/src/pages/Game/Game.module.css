@@ -1,0 +1,47 @@
+.Game {
+  @apply flex justify-center gap-[60px];
+}
+
+.Board {
+  @apply flex flex-col gap-3;
+}
+
+.Status {
+  @apply text-xl;
+}
+
+.Squares {
+  --board-size: calc(var(--square-size) * 3);
+  @apply box-content;
+  @apply flex h-[var(--board-size)] w-[var(--board-size)] flex-row flex-wrap;
+  @apply border-[3px] border-solid border-[color:var(--primary-color)];
+}
+
+.Square {
+  @apply box-border h-[var(--square-size)] w-[var(--square-size)];
+  @apply flex items-center justify-center;
+  @apply border-solid border-[color:var(--primary-color)];
+  @apply border-[0.1px] p-0 text-xl text-[color:var(--primary-color)];
+  @apply bg-white text-player;
+}
+
+.History {
+  @apply mt-[38px] min-w-[100px];
+  & ol {
+    @apply m-0 flex flex-col gap-2 pl-0;
+  }
+  & li {
+    @apply list-[decimal-leading-zero];
+
+    &::marker {
+      @apply text-primary;
+    }
+  }
+  & button {
+    @apply select-none;
+    @apply rounded border-0;
+    @apply px-[0.8em] py-[0.4em] text-secondary;
+    @apply bg-primary;
+    @apply min-w-[108px];
+  }
+}
